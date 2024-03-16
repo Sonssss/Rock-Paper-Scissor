@@ -3,6 +3,9 @@ let compScore=0;
 
 const choices = document.querySelectorAll(".choice");
 const msg=document.querySelector("#msg");
+const userPara=document.querySelector("#user-score");
+const compPara=document.querySelector("#comp-score");
+
 
 const generateCompChoice=()=>{
     const options=["rock","paper","scissors"];
@@ -29,11 +32,15 @@ const rockGame=()=>{
 
 let showWinner=(userWin,userChoice,compChoice)=>{
     if(userWin){
+        userScore++;
+        userPara.innerHTML=userScore;
         console.log("You Win!");
         msg.innerText=`You Win!! Your choice ${userChoice} beats ${compChoice}`;
         msg.style.backgroundColor="green";
     }
     else{
+        compScore++;
+        compPara.innerHTML=compScore;
         console.log("You Loose!");
         msg.innerText=`You Loose!! ${compChoice} beats your choice ${userChoice}`;
         msg.style.backgroundColor="red";
